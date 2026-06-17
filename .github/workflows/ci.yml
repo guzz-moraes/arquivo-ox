@@ -23,10 +23,10 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y gcc
 
       - name: Compilar programa principal
-        run: gcc arquivo-ox.c function_guga.c -o arquivo-ox
+        run:  gcc arquivo-ox.c -o arquivo-ox
 
       - name: Compilar testes
-        run: gcc test_arquivo-ox.c function_guga.c -o teste
+        run: gcc test_arquivo-ox.c -o test_arquivo-ox
 
       - name: Executar testes
         run: ./teste
