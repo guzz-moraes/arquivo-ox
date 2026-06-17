@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "function_guga.c"
 
 int guga(char c);
 void salvarArquivo(char tabuleiro[3][3], char nome[]);
