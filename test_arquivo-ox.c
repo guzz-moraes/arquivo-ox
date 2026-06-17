@@ -1,4 +1,5 @@
 #include <assert.h>
+#include "function_guga.c"
 
 int guga(char c);
 
