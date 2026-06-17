@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int validar(char c)
+int guga(char c)
 {
     if (c == 'X' || c == 'O')
         return 1;
@@ -8,11 +8,9 @@ int validar(char c)
     return 0;
 }
 
-void gravar(char matriz[3][3], char nomeArquivo[])
+void salvarArquivo(char tabuleiro[3][3], char nome[])
 {
-    FILE *arquivo;
-
-    arquivo = fopen(nomeArquivo, "w");
+    FILE *arquivo = fopen(nome, "w");
 
     if (arquivo == NULL)
     {
@@ -20,14 +18,14 @@ void gravar(char matriz[3][3], char nomeArquivo[])
         return;
     }
 
-    fprintf(arquivo, "| %c | %c | %c |\n",
-            matriz[0][0], matriz[0][1], matriz[0][2]);
-
-    fprintf(arquivo, "| %c | %c | %c |\n",
-            matriz[1][0], matriz[1][1], matriz[1][2]);
-
-    fprintf(arquivo, "| %c | %c | %c |\n",
-            matriz[2][0], matriz[2][1], matriz[2][2]);
+    for (int i = 0; i < 3; i++)
+    {
+        fprintf(arquivo,
+                "| %c | %c | %c |\n",
+                tabuleiro[i][0],
+                tabuleiro[i][1],
+                tabuleiro[i][2]);
+    }
 
     fprintf(arquivo, "\n");
     fprintf(arquivo, "Criado por Gustavo Moraes");
