@@ -1,14 +1,14 @@
 #include <assert.h>
 
-int validar(char c);
+int guga(char c);
 
 int main()
 {
-    assert(validar('X') == 1);
-    assert(validar('O') == 1);
+    assert(guga('X') == 1);
+    assert(guga('O') == 1);
 
-    assert(validar('A') == 0);
-    assert(validar('x') == 0);
+    assert(guga('A') == 0);
+    assert(guga('x') == 0);
 
     return 0;
 }
