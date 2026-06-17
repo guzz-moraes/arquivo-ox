@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int validar(char c);
-void gravar(char matriz[3][3], char nomeArquivo[]);
+int guga(char c);
+void salvarArquivo(char tabuleiro[3][3], char nome[]);
 
 int main(int argc, char *argv[])
 {
-    char matriz[3][3];
-    int i, j;
-    int k = 2;
+    char tabuleiro[3][3];
+    int linha, coluna;
+    int indice = 2;
 
     if (argc != 11)
     {
@@ -16,23 +16,23 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    for (i = 0; i < 3; i++)
+    for (linha = 0; linha < 3; linha++)
     {
-        for (j = 0; j < 3; j++)
+        for (coluna = 0; coluna < 3; coluna++)
         {
-            matriz[i][j] = argv[k][0];
+            tabuleiro[linha][coluna] = argv[indice][0];
 
-            if (!validar(matriz[i][j]))
+            if (!guga(tabuleiro[linha][coluna]))
             {
                 printf("Erro: use apenas X ou O\n");
                 return 1;
             }
 
-            k++;
+            indice++;
         }
     }
 
-    gravar(matriz, argv[1]);
+    salvarArquivo(tabuleiro, argv[1]);
 
     return 0;
 }
