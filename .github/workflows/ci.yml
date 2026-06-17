@@ -1,0 +1,38 @@
+name: Compilacao e Testes
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar GCC
+        run: sudo apt-get update && sudo apt-get install -y gcc
+
+      - name: Compilar programa principal
+        run: gcc arquivo-ox.c function_guga.c -o arquivo-ox
+
+      - name: Compilar testes
+        run: gcc test_arquivo-ox.c function_guga.c -o teste
+
+      - name: Executar testes
+        run: ./teste
+
+      - name: Testar execucao do programa
+        run: ./arquivo-ox tabuleiro.txt O O O X X X O O O
+
+      - name: Mostrar arquivo gerado
+        run: cat tabuleiro.txt
